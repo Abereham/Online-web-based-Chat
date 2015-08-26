@@ -20,6 +20,7 @@ public class Topic implements ITopic {
 		return emf;
 	}
 
+	
 	public void setEmf(EntityManagerFactory emf) {
 		this.emf = emf;
 	}

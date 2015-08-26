@@ -12,5 +12,4 @@ public interface ITopic {
   public List<Topic> getAll();
   public Topic getTopic(String title );
   
-  
 }
