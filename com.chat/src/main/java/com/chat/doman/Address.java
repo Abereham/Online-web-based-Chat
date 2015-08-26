@@ -22,6 +22,7 @@ public class Address {
 	 private User user;
 	
 	
+	
 	public Address(String addressId, String street, String city, String state, int zipcode) {
 		super();
 		AddressId = addressId;

@@ -26,6 +26,7 @@ public class Topic {
 	  @JoinColumn(name="user-id")
 	  private User user;
 	
+	
 	 
 	 @OneToMany(mappedBy="topic",fetch=FetchType.LAZY, cascade=CascadeType.ALL )
 	public List<Conversation> conversation;
