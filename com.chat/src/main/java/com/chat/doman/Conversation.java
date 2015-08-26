@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Conversation {
@@ -13,7 +15,9 @@ private long conversationId;
 private String createdBy;
 private Date createdDate;
 private int rate;
-
+@ManyToOne
+@JoinColumn(name="user_Id")
+private User user;
 public Conversation()
 {
 	}
@@ -40,5 +44,11 @@ public int getRate() {
 }
 public void setRate(int rate) {
 	this.rate = rate;
+}
+public User getUser() {
+	return user;
+}
+public void setUser(User user) {
+	this.user = user;
 }
 }

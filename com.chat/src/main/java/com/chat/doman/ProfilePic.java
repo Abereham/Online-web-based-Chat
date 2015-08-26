@@ -3,6 +3,8 @@ package com.chat.doman;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ProfilePic {
@@ -10,7 +12,9 @@ public class ProfilePic {
 	private int id;
 	private String UserId;
 	private byte[] pic;
-	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	public ProfilePic()
 	{
 		
@@ -32,6 +36,12 @@ public class ProfilePic {
 	}
 	public void setPic(byte[] pic) {
 		this.pic = pic;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
