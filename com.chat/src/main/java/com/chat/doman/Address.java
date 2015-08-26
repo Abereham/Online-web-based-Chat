@@ -3,6 +3,9 @@ package com.chat.doman;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity 
 public class Address {
@@ -13,6 +16,12 @@ public class Address {
 	private String city;
 	private String State;
 	private int Zipcode;
+	
+	@OneToOne
+	 @JoinColumn(name="userId")
+	 private User user;
+	
+	
 	public Address(String addressId, String street, String city, String state, int zipcode) {
 		super();
 		AddressId = addressId;
@@ -21,6 +30,18 @@ public class Address {
 		State = state;
 		Zipcode = zipcode;
 	}
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public Address() {
 		super();
 	}

@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Topic {
@@ -14,6 +16,11 @@ public class Topic {
 	private String updatedby;
 	private Date Date;
 	private int rate;
+	
+	@ManyToOne
+	  @JoinColumn(name="user-id")
+	  private User user;
+	
 	public Topic(long topicId, String createdBy, String updatedby, java.util.Date date, int rate) {
 		super();
 		TopicId = topicId;
@@ -22,6 +29,21 @@ public class Topic {
 		Date = date;
 		this.rate = rate;
 	}
+	
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
 	public Topic() {
 		super();
 		
