@@ -18,6 +18,9 @@ private int rate;
 @ManyToOne
 @JoinColumn(name="user_Id")
 private User user;
+@ManyToOne
+@JoinColumn(name="topic_id")
+private Topic topic;
 public Conversation()
 {
 	}
@@ -50,5 +53,11 @@ public User getUser() {
 }
 public void setUser(User user) {
 	this.user = user;
+}
+public Topic getTopic() {
+	return topic;
+}
+public void setTopic(Topic topic) {
+	this.topic = topic;
 }
 }
