@@ -3,6 +3,8 @@ package com.chat.doman;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity 
 public class UserDetails {
@@ -13,6 +15,11 @@ public class UserDetails {
 	private int phoneNO;
 	private int email;
 	
+	@OneToOne
+	 @JoinColumn(name="userId")
+	 private User user;
+	
+	
 	public UserDetails(String userDetailsID, String firstName, String lastname, int phoneNO, int email) {
 		super();
 		this.userDetailsID = userDetailsID;
@@ -22,6 +29,17 @@ public class UserDetails {
 		this.email = email;
 	}
 	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public UserDetails() {
 		super();
 	}
